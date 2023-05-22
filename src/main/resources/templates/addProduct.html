@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+>
+
+<head>
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Добавить новый продукт</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header th:insert="header.html"></header>
+<div class="form-style" style="margin-top: 100px;">
+<h2>Добавить новый продукт</h2>
+<form action="#" th:action="@{/add}" th:object="${product}" method="post">
+    <input type="text" th:field="*{name}" placeholder="Введите название продукта" required>
+    <input type="text" th:field="*{material}" placeholder="Введите материал"  required>
+    <input type="text" th:field="*{colour}" placeholder="Введите цвет" required>
+    <input type="text" th:field="*{type}" placeholder="Введите тип" required>
+    <input type="number" min="0" th:field="*{price}" step="0.01" placeholder="Введите цену" required>
+
+    <label>Выберите предприятие</label>
+    <select th:field="*{supplierId}" required>
+    <option th:each="s : ${suppliers}" th:value="${s.id}" th:text="${s.name}" />
+    </select>
+    <input type="submit" value="Добавить">
+</form>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

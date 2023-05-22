@@ -1,0 +1,277 @@
+@charset "ISO-8859-1";
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*ul {*/
+/*    padding: 0; !* ??????? ???? *!*/
+/*    margin-left: 20px; !* ?????? ????? *!*/
+/*}*/
+
+header img {
+    height: 80px;
+    margin-left: 50px;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+}
+
+.fill {
+    flex: 1 1 auto;
+    justify-content: space-between;
+}
+
+header li {
+    display: inline-block;
+}
+
+/*header li {*/
+/*    margin: 20px;*/
+/*}*/
+
+header li a {
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+    padding: 10px 30px;
+    display: inline-block;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+table {
+    margin: auto;
+}
+
+.cars table {
+    table-layout: fixed;
+    width: 450px;
+}
+
+.cars table td {
+    overflow: hidden;
+}
+
+.cars table td:nth-of-type(1) {
+    width: 200px;
+}
+
+.cars table td:nth-of-type(2) {
+    width: 75px;
+}
+
+.cars table td:nth-of-type(3) {
+    width: 175px;
+}
+
+a:hover, a:active {
+    background-color: #2ECC71;
+    color: white;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    max-width: 1000px;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background-color: #2ECC71;
+    color: white;
+    padding: 2px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.form-style {
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    font: 16px Arial, Helvetica, sans-serif;
+}
+
+.form-style h2 {
+    background: #4D4D4D;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+
+.form-style input[type="text"],
+.form-style input[type="password"],
+.form-style input[type="number"],
+.form-style input[type="search"],
+.form-style select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    height: 45px;
+}
+
+.form-style input[type="submit"] {
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2ECC71;;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.form-style input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color: #34CACA;
+}
+
+.cars {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.cars caption {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.cars td, .cars th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.cars tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cars tr:hover {
+    background-color: #ddd;
+}
+
+.cars th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.receipt {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.receipt caption {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.receipt td, .receipt th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.receipt tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.receipt tr:hover {
+    background-color: #ddd;
+}
+
+.receipt th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#leftbox {
+    float: left;
+    width: 28%;
+    height: 550px;
+    margin-left: 120px;
+}
+
+.alert-danger {
+    color: red;
+    font-size: 12px;
+}
+
+.order {
+    text-align: left;
+    padding: 20px;
+    box-shadow: 0 0 25px 0 black;
+    background: #FFFFFF;
+    width: 1000px;
+}
+
+.order tr {
+    border-bottom: none;
+}
+
+.order td {
+    min-width: 50px;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+}
+
+nav li:last-child {
+    float: right;
+    margin-right: 40px;
+}
+
+.green-link {
+    background-color: #4CAF50;
+    color: white;
+}

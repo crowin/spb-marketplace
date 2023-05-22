@@ -1,0 +1,15 @@
+<img src="../static/logo.jpg" th:src="@{/logo.jpg}">
+<div class="fill">
+  <nav>
+    <ul>
+      <li><a href="/" th:href="@{/}">Главная</a></li>
+      <li><a href="/list" sec:authorize="hasAnyRole('ADMIN')" th:href="@{/list}">Добавить продукт</a></li>
+      <li><a href="/list" sec:authorize="hasAnyRole('ADMIN')" th:href="@{/suppliers/manage}">Управление поставщиками</a></li>
+      <li><a href="/view" th:href="@{/view}">Просмотр</a></li>
+      <li><a href="/search" th:href="@{/search}">Поиск</a></li>
+      <li><a href="/logout" sec:authorize="isAuthenticated()" th:href="@{/logout}">Выйти</a></li>
+      <li sec:authorize="isAnonymous()"><a href="/login" class="green-link" th:href="@{/login}">Войти</a></li>
+      <li sec:authorize="isAuthenticated()"><a href="/orders" class="green-link" th:text="${#authentication.name}" th:href="@{/orders}">Пользователь</a></li>
+    </ul>
+  </nav>
+</div>

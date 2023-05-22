@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Чек</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}"/>
+</head>
+<body>
+<header th:insert="header.html"></header>
+<h1 style="text-align:center; margin-top:100px;">История заказов</h1>
+<div>
+    <div th:each="order, itrStat: ${orders}">
+        <table class="order" th:object="${order}">
+            <tr>
+                <th th:text="'№' + ${itrStat.index + 1}">
+                <td th:text="*{{orderDate}} + ' был выполнен заказ ' + *{product.name} + ' на сумму ' + *{totalSum} + ' руб. включая налоги'"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

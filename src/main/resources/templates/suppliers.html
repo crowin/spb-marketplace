@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Добавить новый продукт</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header th:insert="header.html"></header>
+<div class="form-style" style="margin-top: 100px;">
+    <h2>Управление поставщиками</h2>
+    <h3>Добавить нового поставщика</h3>
+    <form action="#" th:action="@{/suppliers/add}" th:object="${supplier}" method="post">
+        <input type="text" th:field="*{name}" placeholder="Введите название поставщика" required>
+        <input type="text" th:field="*{region}" placeholder="Введите регион поставщика"  required>
+        <input type="text" th:field="*{city}" placeholder="Введите город поставщика" required>
+        <input type="submit" value="Добавить">
+    </form>
+    <br/>
+    <h3>Удалить поставщика</h3>
+    <form th:action="@{/suppliers/delete}" method="post">
+        <div th:each="s : ${suppliers}">
+            <input type="checkbox" name="supplier"
+                   th:text="${s.name} + ': содержит ' + ${#lists.size(s.products)} + ' наименования'"
+                   th:value="${s.id}"
+            />
+        </div>
+        <input type="submit" value="Удалить">
+    </form>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

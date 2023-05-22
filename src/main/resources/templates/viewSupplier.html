@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Просмотр продуктов</title>>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header th:insert="header.html"></header>
+<h1 style="text-align:center; margin-top:100px;">Управление продуктами предприятия</h1>
+<h2 th:text="${supplier.name} + ', г. ' + ${supplier.city}">Название производителя</h2>
+<div>
+    <table class="cars">
+        <tr>
+            <th>Название</th>
+            <th>Материал</th>
+            <th>Цвет</th>
+            <th>Цена</th>
+            <th>Тип</th>
+            <th>Удалить</th>
+        </tr>
+        <tr th:each="i : ${supplier.products}">
+            <td th:text="${i.product.name}">Название</td>
+            <td th:text="${i.product.material}">Материал</td>
+            <td th:text="${i.product.colour}">Цвет</td>
+            <td th:text="${i.price} + ' руб.'">Цена</td>
+            <td th:text="${i.product.type}">Тип</td>
+            <td><a href="" th:href="@{/supplier/{s_id}/product/{p_id}/delete(s_id=${supplier.id},p_id=${i.product.id})}">Удалить</a></td>
+        </tr>
+    </table>
+</div>
+<div class="form-style" style="margin-top: 100px;">
+    <h2>Присоединить продукт</h2>
+    <form action="#" th:action="@{supplier/connectProduct}" th:object="${newproduct}" method="post">
+        <select>
+            <option th:each="p : ${products}" th:field="productId" th:value="${p.id}" th:text="${p.name}"></option>
+        </select>
+        <input type="text" th:field="${price}" placeholder="Введите цену продукта" required>
+        <input type="submit" value="Добавить">
+    </form>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

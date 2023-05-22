@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Чек</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}"/>
+</head>
+<body>
+<header th:insert="header.html"></header>
+<h1 style="text-align:center; margin-top:100px;" th:text="'Квитанция об оплате для пользователя ' + *{#authentication.name}">Подтверждение заказа</h1>
+<div>
+    <div>
+        <table class="receipt" th:object="${purchase}">
+            <tr>
+                <th>Название товара</th>
+                <td th:text="*{name}">Название</td>
+            </tr>
+            <tr>
+                <th>Предприятие</th>
+                <td th:text="*{supplierName}">Предприятие</td>
+            </tr>
+            <tr>
+                <th>Город отправления товара</th>
+                <td th:text="*{fromCity}">Город отправления</td>
+            </tr>
+            <tr>
+                <th>Стоимость товара</th>
+                <td th:text="*{price} + ' руб.'">Стоимость товара</td>
+            </tr>
+            <tr>
+                <th th:text="'Налоги' + ' (' + *{taxPercent} + '%)'">Налоги</th>
+                <td th:text="*{tax} + ' руб.'">Налоги</td>
+            </tr>
+            <tr>
+                <th>Итоговая стоимость:</th>
+                <td th:field="*{totalPrice}" th:text="*{totalPrice} + ' руб.'">Цена</td>
+            </tr>
+            <tr>
+                <th colspan="2" style="text-align:center;" th:text="'Спасибо за покупку!'"></th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

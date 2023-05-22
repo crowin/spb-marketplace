@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Редактировать продукт</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header th:insert="header.html"></header>
+<div class="form-style" style="margin-top: 100px;">
+<h2>Редактировать продукт</h2>
+<form action="#" th:action="@{/edit}" th:object="${product}">
+<input type="hidden" th:field="*{id}" />
+<input type="text" th:field="*{name}" placeholder="Введите название продукта" required>
+<input type="text" th:field="*{material}" placeholder="Введите материал"  required>
+<input type="text" th:field="*{colour}" placeholder="Введите цвет" required>
+<input type="number" min="0" th:field="*{price}" step="0.01" placeholder="Введите цену" required>
+<input type="text" th:field="*{type}" placeholder="Введите тип" required>
+    <label></label>
+
+<!--<label>Выберите своё предприятие</label>-->
+<!--<select th:field="*{supplier.name}" required>-->
+<!--<option th:each="c : *{suppliers}" th:value="${c.id}" th:text="${c.name}" />-->
+<!--</select>-->
+<!--<label>Выберите новое предприятие (необязательно)</label>-->
+<!--<select th:field="*{newmaterial}">-->
+<!--<option th:each="c : *{suppliers}" th:value="${c.id}" th:text="${c.name}" />-->
+<!--</select>-->
+<input type="submit" value="Подтвердить">
+</form>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

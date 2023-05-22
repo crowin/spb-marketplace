@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Просмотр продуктов</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header th:insert="header.html"></header>
+<h1 style="text-align:center; margin-top:100px;">Просмотр продуктов</h1>
+<div th:each="s : ${suppliers}" th:id="product">
+    <table class="cars" style="width:1200px">
+        <caption th:text="${s.name} + ', г. ' + ${s.city}">Название производителя</caption>
+        <tr>
+            <th>Id продукта</th>
+            <th>Название</th>
+            <th>Материал</th>
+            <th>Цвет</th>
+            <th>Цена</th>
+            <th>Тип</th>
+            <th style="width: 100px" sec:authorize="hasRole('ADMIN')">Редактировать</th>
+            <th style="width: 100px" sec:authorize="hasRole('ADMIN')">Удалить</th>
+            <th style="width: 100px" sec:authorize="isAuthenticated()">Купить</th>
+        </tr>
+        <tr th:each="i : ${s.products}">
+            <td style="width: 20px" th:text="${i.id}">Название</td>
+            <td style="width: 400px" th:text="${i.name}">Название</td>
+            <td style="width: 110px" th:text="${i.material}">Материал</td>
+            <td style="width: 70px" th:text="${i.colour}">Цвет</td>
+            <td style="width: 120px" th:text="${i.price} + ' руб.'">Цена</td>
+            <td style="width: 150px" th:text="${i.type}">Тип</td>
+            <td sec:authorize="hasRole('ADMIN')" ><a href="" th:href="@{/product/edit/{id}(id=${i.id})}">Редактировать</a></td>
+            <td sec:authorize="hasRole('ADMIN')"><a href="" th:href="@{/product/delete/{id}(id=${i.id})}">Удалить</a></td>
+            <td sec:authorize="isAuthenticated()"><a href="" th:href="@{/product/purchase/{id}(id=${i.id})}">Купить</a></td>
+
+        </tr>
+    </table>
+    <br>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

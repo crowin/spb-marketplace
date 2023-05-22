@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="ISO-8859-1">
+<title>Поиск</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<header th:insert="header.html"></header>
+<body>
+<div style="margin-top:100px" class="form-style">
+<h2>Найти продукты</h2>
+<br>
+<form action="#" th:action="@{/searchBy}">
+<input type="text" name="name" placeholder="Введите название продукта" required>
+<input type="submit" value="Найти">
+</form>
+<br>
+<form action="#" th:action="@{/searchBy}">
+<input type="text" name="material" placeholder="Введите материал" required>
+<input type="submit" value="Найти">
+</form>
+<br>
+<form action="#" th:action="@{/searchBy}">
+<label>Поиск по цене:</label>
+<br>
+<input type="number" min="0" step="0.01" name="minPrice" placeholder="Введите минимальную цену" required>
+<input type="number" min="0" step="0.01" name="maxPrice" placeholder="Введите максимальную цену" required>
+<input type="submit" value="Найти">
+</form>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>

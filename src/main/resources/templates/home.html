@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Главная</title>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/style.css}" />
+</head>
+<body>
+<header th:insert="header.html">
+
+</header>
+<div class="container">
+    <div sec:authorize="hasAnyRole('ADMIN')"><a href="/list" th:href="@{/list}"><img src="../static/add.jpg" th:src="@{/add.jpg}"></a></div>
+    <div><a href="/view" th:href="@{/view}"><img src="../static/view.jpg" th:src="@{/view.jpg}"></a></div>
+    <div><a href="/search" th:href="@{/search}"><img src="../static/search.jpg" th:src="@{/search.jpg}"></a></div>
+    <div><br><br></div>
+</div>
+</body>
+<footer th:insert="footer.html"></footer>
+</html>
