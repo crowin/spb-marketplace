@@ -10,6 +10,8 @@ jobs:
   autodeploy:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+    
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v2
       with:
@@ -27,5 +29,5 @@ jobs:
               --path . \
               --env "BP_OCI_SOURCE=https://github.com/crowin/spb-marketplace" \
               --env "BP_JVM_VERSION=17" \
-              --cache-image ghcr.io/jonashackt/spb-marketplace-cache-image:latest \
+              --cache-image ghcr.io/crowin/spb-marketplace-cache-image:latest \
               --publish
