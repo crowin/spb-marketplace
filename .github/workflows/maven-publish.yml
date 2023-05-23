@@ -31,6 +31,7 @@ jobs:
               --env "BP_OCI_SOURCE=https://github.com/crowin/spb-marketplace" \
               --env BP_MAVEN_BUILD_ARGUMENTS="-Dmaven.test.skip=true --no-transfer-progress package -Pnative" \
               --env "BP_JVM_VERSION=17" \
+              --env "JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8" \
               --env "BP_NATIVE_IMAGE=true" \
               --cache-image ghcr.io/crowin/spb-marketplace-cache-image:latest \
               --publish
