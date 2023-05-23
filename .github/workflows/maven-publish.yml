@@ -28,6 +28,7 @@ jobs:
               --builder paketobuildpacks/builder:tiny \
               --buildpack paketo-buildpacks/java-native-image@8.6.0 \
               --path . \
+              --env "LANG=en_US.utf8" \
               --env "BP_OCI_SOURCE=https://github.com/crowin/spb-marketplace" \
               --env BP_MAVEN_BUILD_ARGUMENTS="-Dmaven.test.skip=true --no-transfer-progress package -Pnative" \
               --env "BP_JVM_VERSION=17" \
