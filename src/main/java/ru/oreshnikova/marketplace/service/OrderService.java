@@ -8,7 +8,9 @@ import ru.oreshnikova.marketplace.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 
 @Service @AllArgsConstructor
 public class OrderService {
@@ -24,6 +26,7 @@ public class OrderService {
         var newOrder = new Order()
                 .setUser(user)
                 .setProduct(product)
+                .setOrderDate(Date.valueOf(LocalDate.now()))
                 .setTotalSum(purchase.getTotalPrice());
 
         orderRepository.save(newOrder);
