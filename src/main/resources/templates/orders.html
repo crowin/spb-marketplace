@@ -9,10 +9,9 @@
 <header th:insert="header.html"></header>
 <h1 style="text-align:center; margin-top:100px;">История заказов</h1>
 <div>
-    <div th:each="order, itrStat: ${orders}">
+    <div th:each="order: ${orders}">
         <table class="order" th:object="${order}">
             <tr>
-                <th th:text="'№' + ${itrStat.index + 1}">
                 <td th:text="*{{orderDate}} + ' был выполнен заказ ' + *{product.name} + ' на сумму ' + *{totalSum} + ' руб. включая налоги'"></td>
             </tr>
         </table>

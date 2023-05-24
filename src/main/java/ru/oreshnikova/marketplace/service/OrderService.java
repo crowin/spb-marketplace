@@ -27,7 +27,7 @@ public class OrderService {
                 .setUser(user)
                 .setProduct(product)
                 .setOrderDate(Date.valueOf(LocalDate.now()))
-                .setTotalSum(purchase.getTotalPrice());
+                .setTotalSum(purchase.totalPrice());
 
         orderRepository.save(newOrder);
 
