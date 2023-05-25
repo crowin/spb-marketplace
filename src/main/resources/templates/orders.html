@@ -10,7 +10,7 @@
 <h1 style="text-align:center; margin-top:100px;">История заказов</h1>
 <div>
     <div th:each="order: ${orders}">
-        <table class="order" th:object="${order}">
+        <table class="order">
             <tr>
                 <td th:text="${order.orderDate} + ' был выполнен заказ ' + ${order.product.name} + ' на сумму ' + ${order.totalSum} + ' руб. включая налоги'"></td>
             </tr>

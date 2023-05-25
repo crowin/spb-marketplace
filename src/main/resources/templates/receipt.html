@@ -10,7 +10,7 @@
 <h1 style="text-align:center; margin-top:100px;" th:text="'Квитанция об оплате для пользователя ' + *{#authentication.name}">Подтверждение заказа</h1>
 <div>
     <div>
-        <table class="receipt" th:object="${purchase}">
+        <table class="receipt">
             <tr>
                 <th>Название товара</th>
                 <td th:text="${purchase.name}">Название</td>
