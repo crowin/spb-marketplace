@@ -1,8 +1,5 @@
 package ru.oreshnikova.marketplace.controllers;
 
-import ru.oreshnikova.marketplace.dto.OrderDto;
-import ru.oreshnikova.marketplace.service.OrderService;
-import ru.oreshnikova.marketplace.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
+import ru.oreshnikova.marketplace.service.OrderService;
+import ru.oreshnikova.marketplace.service.UserService;
 
 @Controller @AllArgsConstructor
 public class OrderController {
