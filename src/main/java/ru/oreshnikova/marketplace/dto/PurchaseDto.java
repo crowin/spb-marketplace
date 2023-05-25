@@ -1,10 +1,16 @@
 package ru.oreshnikova.marketplace.dto;
 
-public record PurchaseDto(String name,
-                          Double tax,
-                          Double taxPercent,
-                          Double price,
-                          Double totalPrice,
-                          String supplierName,
-                          String fromCity,
-                          Long productId) {}
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor @NoArgsConstructor
+public final class PurchaseDto {
+    public String name;
+    public Double tax;
+    public Double taxPercent;
+    public Double price;
+    public Double totalPrice;
+    public String supplierName;
+    public String fromCity;
+    public Long productId;
+}
