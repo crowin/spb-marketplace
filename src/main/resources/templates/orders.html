@@ -12,7 +12,7 @@
     <div th:each="order: ${orders}">
         <table class="order" th:object="${order}">
             <tr>
-                <td th:text="*{{orderDate}} + ' был выполнен заказ ' + *{product.name} + ' на сумму ' + *{totalSum} + ' руб. включая налоги'"></td>
+                <td th:text="${order.orderDate} + ' был выполнен заказ ' + ${order.product.name} + ' на сумму ' + ${order.totalSum} + ' руб. включая налоги'"></td>
             </tr>
         </table>
     </div>

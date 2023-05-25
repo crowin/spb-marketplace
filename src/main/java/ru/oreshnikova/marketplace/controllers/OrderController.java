@@ -1,5 +1,6 @@
 package ru.oreshnikova.marketplace.controllers;
 
+import ru.oreshnikova.marketplace.dto.OrderDto;
 import ru.oreshnikova.marketplace.service.OrderService;
 import ru.oreshnikova.marketplace.service.UserService;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller @AllArgsConstructor
 public class OrderController {
     private OrderService orderService;
@@ -17,8 +20,8 @@ public class OrderController {
 
     @GetMapping("/orders")
     public String getOrders(Model model, @AuthenticationPrincipal UserDetails currentUser) {
-        var user = userService.findUserByName(currentUser.getUsername()).get();
-        model.addAttribute("orders", user.getOrders());
+        var orders = userService.getUserOrders(currentUser.getUsername());
+        model.addAttribute("orders", orders);
         return "orders.html";
     }
 

@@ -13,27 +13,27 @@
         <table class="receipt" th:object="${purchase}">
             <tr>
                 <th>Название товара</th>
-                <td th:text="*{name}">Название</td>
+                <td th:text="${purchase.name}">Название</td>
             </tr>
             <tr>
                 <th>Предприятие</th>
-                <td th:text="*{supplierName}">Предприятие</td>
+                <td th:text="${purchase.supplierName}">Предприятие</td>
             </tr>
             <tr>
                 <th>Город отправления товара</th>
-                <td th:text="*{fromCity}">Город отправления</td>
+                <td th:text="${purchase.fromCity}">Город отправления</td>
             </tr>
             <tr>
                 <th>Стоимость товара</th>
-                <td th:text="*{price} + ' руб.'">Стоимость товара</td>
+                <td th:text="${purchase.price} + ' руб.'">Стоимость товара</td>
             </tr>
             <tr>
-                <th th:text="'Налоги' + ' (' + *{taxPercent} + '%)'">Налоги</th>
-                <td th:text="*{tax} + ' руб.'">Налоги</td>
+                <th th:text="'Налоги' + ' (' + ${purchase.taxPercent} + '%)'">Налоги</th>
+                <td th:text="${purchase.tax} + ' руб.'">Налоги</td>
             </tr>
             <tr>
                 <th>Итоговая стоимость:</th>
-                <td th:field="*{totalPrice}" th:text="*{totalPrice} + ' руб.'">Цена</td>
+                <td th:field="${purchase.totalPrice}" th:text="${purchase.totalPrice} + ' руб.'">Цена</td>
             </tr>
             <tr>
                 <th colspan="2" style="text-align:center;" th:text="'Спасибо за покупку!'"></th>
